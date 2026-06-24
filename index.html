@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ELCONPA — Environmental Business Consultancy</title>
+  <meta name="description" content="ELCONPA is an environmental business consultancy firm helping organisations grow sustainably — compliance, ESG strategy, carbon reduction and environmental impact assessments." />
+  <link rel="icon" type="image/png" href="logo.png" />
+  <meta property="og:title" content="ELCONPA — Environmental Business Consultancy" />
+  <meta property="og:description" content="Sustainable strategy for forward-thinking business." />
+  <meta property="og:image" content="logo.png" />
+  <meta property="og:type" content="website" />
+  <style>
+    :root {
+      --forest: #14532d;
+      --forest-dark: #0f3d22;
+      --leaf: #6aa84f;
+      --leaf-light: #8bc34a;
+      --navy: #1f3b57;
+      --ink: #14271c;
+      --muted: #5b6b61;
+      --bg: #ffffff;
+      --bg-soft: #f4f8f3;
+      --bg-mint: #eaf3e6;
+      --border: #e2ece0;
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(20, 83, 45, 0.08);
+      --maxw: 1140px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+    a { color: inherit; text-decoration: none; }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 0.2px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary { background: var(--forest); color: #fff; box-shadow: 0 8px 20px rgba(20,83,45,0.22); }
+    .btn-primary:hover { background: var(--forest-dark); transform: translateY(-2px); }
+    .btn-ghost { background: transparent; color: var(--forest); border: 1.5px solid var(--border); }
+    .btn-ghost:hover { border-color: var(--leaf); color: var(--forest-dark); }
+
+    /* ---------- Header ---------- */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(255,255,255,0.82);
+      backdrop-filter: saturate(180%) blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 22px; color: var(--forest); letter-spacing: 0.5px; }
+    .brand img { height: 46px; width: 46px; object-fit: contain; }
+    .nav-links { display: flex; align-items: center; gap: 34px; }
+    .nav-links a { font-size: 15px; font-weight: 500; color: var(--muted); transition: color 0.15s; }
+    .nav-links a:hover { color: var(--forest); }
+    .nav-cta { display: flex; align-items: center; gap: 16px; }
+    .menu-btn { display: none; background: none; border: none; font-size: 26px; color: var(--forest); cursor: pointer; }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      position: relative;
+      background:
+        radial-gradient(1100px 500px at 85% -10%, var(--bg-mint), transparent 60%),
+        linear-gradient(180deg, var(--bg-soft), #ffffff 70%);
+      padding: 96px 0 84px;
+      overflow: hidden;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--bg-mint); color: var(--forest);
+      font-size: 13px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase;
+      padding: 7px 16px; border-radius: 999px; margin-bottom: 22px;
+    }
+    .eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--leaf); }
+    .hero h1 { font-size: clamp(36px, 5vw, 58px); line-height: 1.08; letter-spacing: -1px; color: var(--ink); font-weight: 800; }
+    .hero h1 .accent { color: var(--forest); }
+    .hero p.lead { font-size: 19px; color: var(--muted); margin: 22px 0 34px; max-width: 540px; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-figure {
+      position: relative; display: flex; align-items: center; justify-content: center;
+      background: #fff; border: 1px solid var(--border); border-radius: 24px;
+      box-shadow: var(--shadow); padding: 36px; aspect-ratio: 1 / 1;
+    }
+    .hero-figure img { width: 100%; max-width: 360px; object-fit: contain; }
+
+    .trust { margin-top: 56px; display: flex; flex-wrap: wrap; gap: 14px 40px; align-items: center; color: var(--muted); font-size: 14px; }
+    .trust span { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; }
+    .trust span::before { content: "✓"; color: var(--leaf); font-weight: 800; }
+
+    /* ---------- Section shell ---------- */
+    section.block { padding: 88px 0; }
+    .section-head { max-width: 680px; margin: 0 auto 56px; text-align: center; }
+    .section-head .eyebrow { margin-bottom: 16px; }
+    .section-head h2 { font-size: clamp(28px, 3.6vw, 40px); letter-spacing: -0.5px; color: var(--ink); font-weight: 800; }
+    .section-head p { color: var(--muted); font-size: 17px; margin-top: 14px; }
+
+    /* ---------- Services ---------- */
+    #services { background: var(--bg-soft); }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .card {
+      background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 32px 28px; transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .card .ic {
+      width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center;
+      background: var(--bg-mint); margin-bottom: 20px; font-size: 26px;
+    }
+    .card h3 { font-size: 19px; color: var(--forest); margin-bottom: 10px; }
+    .card p { color: var(--muted); font-size: 15px; }
+
+    /* ---------- About / stats ---------- */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    .about-grid h2 { font-size: clamp(28px, 3.4vw, 38px); letter-spacing: -0.5px; margin-bottom: 18px; }
+    .about-grid p { color: var(--muted); font-size: 17px; margin-bottom: 16px; }
+    .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .stat {
+      background: var(--forest); color: #fff; border-radius: var(--radius); padding: 28px 24px;
+      background: linear-gradient(160deg, var(--forest), var(--forest-dark));
+    }
+    .stat .num { font-size: 38px; font-weight: 800; letter-spacing: -1px; }
+    .stat .lbl { font-size: 14px; opacity: 0.85; margin-top: 4px; }
+    .stat:nth-child(2), .stat:nth-child(3) { background: linear-gradient(160deg, var(--navy), #16293c); }
+
+    /* ---------- CTA / Contact ---------- */
+    #contact { background: var(--bg-soft); }
+    .contact-card {
+      background: linear-gradient(160deg, var(--forest), var(--forest-dark));
+      color: #fff; border-radius: 24px; padding: 56px clamp(28px, 5vw, 72px);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+      box-shadow: 0 20px 50px rgba(15,61,34,0.28);
+    }
+    .contact-card h2 { font-size: clamp(28px, 3.6vw, 40px); letter-spacing: -0.5px; }
+    .contact-card p { opacity: 0.9; font-size: 17px; margin-top: 14px; }
+    .contact-list { margin-top: 26px; display: grid; gap: 14px; }
+    .contact-list a, .contact-list span { display: inline-flex; align-items: center; gap: 12px; font-size: 16px; font-weight: 500; }
+    .contact-list .dot { width: 36px; height: 36px; border-radius: 10px; background: rgba(255,255,255,0.12); display: grid; place-items: center; font-size: 17px; }
+
+    form { display: grid; gap: 14px; background: rgba(255,255,255,0.06); padding: 28px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.14); }
+    form label { font-size: 13px; font-weight: 600; opacity: 0.85; }
+    form input, form textarea {
+      width: 100%; padding: 13px 15px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.95); color: var(--ink); font-size: 15px; font-family: inherit;
+    }
+    form textarea { resize: vertical; min-height: 96px; }
+    form .btn-primary { background: #fff; color: var(--forest); margin-top: 4px; }
+    form .btn-primary:hover { background: #eef6ea; }
+
+    /* ---------- Footer ---------- */
+    footer { background: var(--ink); color: #cdd9d0; padding: 52px 0 28px; }
+    .foot-grid { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap; }
+    .foot-brand { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 20px; color: #fff; }
+    .foot-brand img { height: 40px; width: 40px; object-fit: contain; background: #fff; border-radius: 8px; padding: 3px; }
+    .foot-links { display: flex; gap: 28px; flex-wrap: wrap; }
+    .foot-links a { color: #cdd9d0; font-size: 15px; }
+    .foot-links a:hover { color: #fff; }
+    .foot-bottom { border-top: 1px solid rgba(255,255,255,0.12); margin-top: 32px; padding-top: 22px; font-size: 13px; color: #9fb0a4; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 900px) {
+      .hero-grid, .about-grid { grid-template-columns: 1fr; }
+      .hero-figure { order: -1; max-width: 420px; margin: 0 auto; }
+      .cards { grid-template-columns: 1fr 1fr; }
+      .contact-card { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .menu-btn { display: block; }
+      .nav-links.open {
+        display: flex; flex-direction: column; position: absolute; top: 76px; left: 0; right: 0;
+        background: #fff; border-bottom: 1px solid var(--border); padding: 18px 24px; gap: 18px;
+      }
+    }
+    @media (max-width: 560px) {
+      .cards { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: 1fr; }
+      section.block { padding: 64px 0; }
+      .hero { padding: 64px 0 56px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="wrap nav">
+      <a href="#home" class="brand"><img src="logo.png" alt="ELCONPA logo" /> ELCONPA</a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#why">Why ELCONPA</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-cta">
+        <a href="#contact" class="btn btn-primary">Get in touch</a>
+        <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Environmental Business Consultancy</span>
+        <h1>Sustainable strategy for <span class="accent">forward-thinking business.</span></h1>
+        <p class="lead">ELCONPA helps organisations cut their environmental impact, meet compliance with confidence, and turn sustainability into a genuine commercial advantage.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Book a consultation</a>
+          <a href="#services" class="btn btn-ghost">Explore our services</a>
+        </div>
+        <div class="trust">
+          <span>Regulatory compliance</span>
+          <span>Net-zero roadmaps</span>
+          <span>ESG reporting</span>
+        </div>
+      </div>
+      <div class="hero-figure">
+        <img src="logo.png" alt="ELCONPA — environmental business consultancy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="block" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">What we do</span>
+        <h2>Consultancy built around your environmental goals</h2>
+        <p>Practical, commercially-minded advice that keeps you compliant today and resilient tomorrow.</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="ic">🌱</div>
+          <h3>Sustainability Strategy</h3>
+          <p>A clear, costed roadmap that embeds sustainability into your operations and unlocks long-term value.</p>
+        </div>
+        <div class="card">
+          <div class="ic">📋</div>
+          <h3>Environmental Compliance</h3>
+          <p>Stay ahead of regulation with audits, permits and reporting handled by specialists who know the requirements.</p>
+        </div>
+        <div class="card">
+          <div class="ic">🏭</div>
+          <h3>Carbon & Net-Zero</h3>
+          <p>Measure your carbon footprint, set credible reduction targets, and build a defensible path to net zero.</p>
+        </div>
+        <div class="card">
+          <div class="ic">📊</div>
+          <h3>ESG Reporting</h3>
+          <p>Investor-ready ESG disclosures and frameworks that stand up to scrutiny from stakeholders and regulators.</p>
+        </div>
+        <div class="card">
+          <div class="ic">🌍</div>
+          <h3>Impact Assessments</h3>
+          <p>Robust environmental impact assessments to support planning, projects and responsible growth.</p>
+        </div>
+        <div class="card">
+          <div class="ic">🤝</div>
+          <h3>Advisory & Training</h3>
+          <p>Ongoing guidance and team training so sustainability becomes part of how your business operates.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="block" id="about">
+    <div class="wrap about-grid">
+      <div>
+        <span class="eyebrow">About ELCONPA</span>
+        <h2>Environmental expertise, with business sense</h2>
+        <p>We sit at the intersection of environmental science and commercial reality. Regulation, reporting and reputation are moving fast — and ELCONPA exists to help you respond with strategies that are rigorous, achievable and genuinely good for business.</p>
+        <p>From first audit to long-term partnership, we translate complex environmental requirements into clear actions your team can deliver.</p>
+        <a href="#contact" class="btn btn-primary">Work with us</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="num">100%</div><div class="lbl">Focus on environmental outcomes</div></div>
+        <div class="stat"><div class="num">Net&nbsp;Zero</div><div class="lbl">Roadmaps tailored to you</div></div>
+        <div class="stat"><div class="num">ESG</div><div class="lbl">Reporting done properly</div></div>
+        <div class="stat"><div class="num">End&nbsp;to&nbsp;End</div><div class="lbl">Strategy to implementation</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why -->
+  <section class="block" id="why" style="background:var(--bg-soft);">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Why ELCONPA</span>
+        <h2>Sustainability that pays its way</h2>
+        <p>We don't believe doing the right thing and running a strong business are in conflict. Done well, they reinforce each other.</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="ic">🎯</div>
+          <h3>Commercially grounded</h3>
+          <p>Every recommendation is weighed against cost, risk and return — not sustainability for its own sake.</p>
+        </div>
+        <div class="card">
+          <div class="ic">⚖️</div>
+          <h3>Compliance confidence</h3>
+          <p>We keep you on the right side of evolving environmental regulation, with no nasty surprises.</p>
+        </div>
+        <div class="card">
+          <div class="ic">🔍</div>
+          <h3>Clear & transparent</h3>
+          <p>Plain-English advice and honest timelines, so you always know exactly where you stand.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="block" id="contact">
+    <div class="wrap">
+      <div class="contact-card">
+        <div>
+          <h2>Let's talk about your environmental goals</h2>
+          <p>Tell us where you are and where you want to get to. We'll come back with a clear, no-obligation view on how ELCONPA can help.</p>
+          <div class="contact-list">
+            <a href="mailto:info@elconpaltd.com"><span class="dot">✉</span> info@elconpaltd.com</a>
+            <a href="https://elconpaltd.com"><span class="dot">🌐</span> elconpaltd.com</a>
+            <span><span class="dot">📍</span> United Kingdom</span>
+          </div>
+        </div>
+        <form action="https://formspree.io/f/your-form-id" method="POST">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" required />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@company.com" required />
+          </div>
+          <div>
+            <label for="message">How can we help?</label>
+            <textarea id="message" name="message" placeholder="Tell us a little about your business and what you need…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send enquiry</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <div class="foot-brand"><img src="logo.png" alt="ELCONPA logo" /> ELCONPA</div>
+          <p style="margin-top:12px; max-width:320px; font-size:14px; color:#9fb0a4;">Environmental business consultancy — helping organisations grow sustainably and stay compliant.</p>
+        </div>
+        <nav class="foot-links">
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#why">Why ELCONPA</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+      <div class="foot-bottom">
+        <span>© <span id="year"></span> ELCONPA Limited. All rights reserved.</span>
+        <span>elconpaltd.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    var mb = document.getElementById('menuBtn');
+    var nl = document.getElementById('navLinks');
+    mb.addEventListener('click', function () { nl.classList.toggle('open'); });
+    nl.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { nl.classList.remove('open'); }); });
+  </script>
+</body>
+</html>
