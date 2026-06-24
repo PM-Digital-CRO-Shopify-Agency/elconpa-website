@@ -100,9 +100,18 @@
     .hero-figure {
       position: relative; display: flex; align-items: center; justify-content: center;
       background: #fff; border: 1px solid var(--border); border-radius: 24px;
-      box-shadow: var(--shadow); padding: 36px; aspect-ratio: 1 / 1;
+      box-shadow: var(--shadow); padding: 0; aspect-ratio: 1 / 1; overflow: hidden;
     }
-    .hero-figure img { width: 100%; max-width: 360px; object-fit: contain; }
+    .hero-figure img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* ---------- Image band ---------- */
+    .imgband { position: relative; background-size: cover; background-position: center; padding: 100px 0; }
+    .imgband-overlay { position: absolute; inset: 0; background: linear-gradient(120deg, rgba(15,61,34,0.88), rgba(20,83,45,0.55)); }
+    .imgband-inner { position: relative; max-width: 640px; color: #fff; }
+    .imgband-inner h2 { font-size: clamp(26px, 3.4vw, 38px); letter-spacing: -0.5px; }
+    .imgband-inner p { font-size: 17px; opacity: 0.93; margin: 14px 0 28px; }
+    .imgband-inner .btn-primary { background: #fff; color: var(--forest); }
+    .imgband-inner .btn-primary:hover { background: #eef6ea; }
 
     .trust { margin-top: 56px; display: flex; flex-wrap: wrap; gap: 14px 40px; align-items: center; color: var(--muted); font-size: 14px; }
     .trust span { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; }
@@ -240,7 +249,7 @@
         </div>
       </div>
       <div class="hero-figure">
-        <img src="logo.png" alt="ELCONPA — environmental business consultancy" />
+        <img src="img/hero.jpg" alt="Wind farm across green hills at sunset — the environmental industry ELCONPA serves" />
       </div>
     </div>
   </section>
@@ -285,6 +294,16 @@
           <p>Practical, grounded plans to scale operations and profitability without losing control.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Operations band -->
+  <section class="imgband" style="background-image: url('img/operations.jpg');">
+    <div class="imgband-overlay"></div>
+    <div class="wrap imgband-inner">
+      <h2>From the factory floor to the finance function</h2>
+      <p>We get into the detail of how your business actually runs — mapping operations, spotting the bottlenecks and the wasted spend, then making it all run leaner.</p>
+      <a href="mailto:elconpaltd@gmail.com?subject=ELCONPA%20enquiry" class="btn btn-primary">Book a business health check</a>
     </div>
   </section>
 
@@ -364,7 +383,7 @@
       </div>
       <div class="foot-bottom">
         <span>© <span id="year"></span> ELCONPA Limited. All rights reserved.</span>
-        <span>elconpaltd.com</span>
+        <span>elconpaltd.com · Photography via Unsplash</span>
       </div>
     </div>
   </footer>
